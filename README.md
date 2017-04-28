@@ -8,31 +8,34 @@ A web application that generates a report on the quality of go project. It uses 
 
 Assuming you already have a recent version of Go installed, pull down the code with `go get`:
 
-```
+```sh
 go get github.com/nearmap/goreportcardlite
 cd $GOPATH/src/github.com/nearmap/goreportcardlite
 make install
-```
-
-Now run
-
-```
+## To run
 make start
 ```
 
+
 URL for report card
-```
+```sh
 curl http://localhost:8000/report?repo=<full_path_to_local_repository>
 ```
 
 
-### Reference 
-
+### Docker 
+Build docker image
 ```sh
 docker build -t nearmap/goreportcard .
 ```
 
+Generate report with docker, run the following which will generate 'goreportcard.htm' report card and place it in mounted volume i.e. github.com/nearmap/goreportcardlite/goreportcard.htm:
 ```sh
-docker run -ti -v /Users/suneeta.mall/Documents/Wks/go/src/github.nearmap.com/hyperweb/authproxy.git:/go/src/github.nearmap.com/hyperweb/authproxy.git/ nearmap/goreportcard github.nearmap.com/hyperweb/authproxy.git
+docker run -ti -v /Users/suneeta.mall/Documents/Wks/go/src/github.com/nearmap/goreportcardlite:/go/src/github.com/nearmap/goreportcardlite/ nearmap/goreportcard github.com/nearmap/goreportcardlite
 ```
 
+Public docker image is avaialble @ dockerhub 
+```
+#https://hub.docker.com/r/nearmap/goreportcard/
+docker pull nearmap/goreportcard
+```
