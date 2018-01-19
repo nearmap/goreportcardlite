@@ -4,6 +4,15 @@ GoReportCard Lite, a slim version of original [Go Report Card](https://github.co
 
 A web application that generates a report on the quality of go project. It uses several measures, including `gofmt`, `go vet`, `go lint` and `gocyclo`.
 
+### Quick start
+If you have Docker installed and want to analyze a local project, just navigate to that project and run:
+
+```sh
+curl -s https://raw.githubusercontent.com/nearmap/goreportcardlite/master/analyze_current_directory.sh | bash
+```
+
+or, you can save [this script](analyze_current_directory.sh) to your PATH, and run it, still from the project you want to analyze.
+
 ### Installation
 
 Assuming you already have a recent version of Go installed, pull down the code with `go get`:
